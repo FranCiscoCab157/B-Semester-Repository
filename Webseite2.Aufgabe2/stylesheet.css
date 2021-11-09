@@ -1,14 +1,13 @@
 
-h1,h2 { color: white; font-family: 'Bebas Neue', cursive; font-size: px; font-weight: bold; letter-spacing: 0.2em; line-height: 1; text-align: center; }
-p { color: white; font-family: 'Bebas Neue', cursive; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 20; text-align: center;}
-
+h1,h2 { color: white; font-family: 'Bebas Neue', cursive; font-size: 16px; font-weight: bold; letter-spacing: 0.2em; line-height: 1; text-align: center; }
+p { color: white; font-family: 'Bebas Neue', cursive; font-size: 1.2em; line-height: 26px; text-indent: 30px; margin: 20; text-align: center;}
 @keyframes pulse {
   20% {
     padding: 30px;
     background-color: #ED6C21;
   }
 }
-.img1 {
+.Musikvideo {
   border: 1px solid #05A8AA;
   width: fit-content;
   background-color: #EFCA08;
@@ -70,19 +69,29 @@ font-size: 30px;
 }
 
 
-div.content {
+/*div.content {
   background-color: #05A8AA;
-  width: 750px;
+  width: 300px;
   height: 100px;
   border: 15px solid #EFCA08;
   padding: 800px;
   margin: 20px;
   position: static;
 }
+*/
 
+div.content  {
+	width: 65em;
+	margin: 0 auto;
+	padding: 0;
+	background-color: #05A8AA;
+    border: 15px solid #EFCA08;
+}
 .footer {
-  background-color: #EFCA08;
-  padding: 5px;
+	width: 65em;
+	margin: 0 auto;
+	padding: 0;
+	background-color: #EFCA08;
 }
 
 aside {
@@ -104,6 +113,14 @@ aside {
   }
 }
 
+q::before {
+  content: "~";
+  color: #EFCA08;
+}
+q::after {
+  content: "~";
+  color: #ED6C21;
+}
 
 
 
