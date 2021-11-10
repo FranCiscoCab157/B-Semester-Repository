@@ -46,14 +46,14 @@ let events = [
     ["Bee Gees", 25.2],
 ];
 // -- HIER BITTE IHRE LÖSUNG ZUR AUFGABE 2 EINTRAGEN
-// Lösung a) ...
+// Lösung a) 
 console.log (events.length);
-// Lösung b) ...
+// Lösung b) 
 for (let i: number = 0;i < events.length; i++) {
     console.log(length [i][0]);
     console.log(length [i][1]);
 }
-// Lösung c) ...
+// Lösung c) 
 function lösung(array: any[][]): number {
 let result: number = 0;
 for (let i: number = 1; i < array.length; i++) {
@@ -64,7 +64,7 @@ for (let i: number = 1; i < array.length; i++) {
 return result;
 }
 console.log(lösung(events));
-// Lösung d) ...
+// Lösung d) 
 function lösung (name: string): boolean {
     for (let i: number = 0; i < events.length; i++) {
 
@@ -74,7 +74,7 @@ function lösung (name: string): boolean {
     return false;
 }
 console.log(lösung("Mariah Carey"));
-// Lösung e) ...
+// Lösung e)
 funtion factorial(n: number): vold {
 let result: number = 1;
 while (n < 0) {
@@ -84,7 +84,7 @@ n--;
 console.log(result);
 } 
 factorial(5);
-// Lösung f) ...
+// Lösung f) 
 function lösung(): void {
     for (let i: number = 1; i < 33; i++) {
         console.log(i*3);
@@ -92,7 +92,7 @@ function lösung(): void {
     console.log(33);
 } 
 lösung();
-// Lösung g) ...
+// Lösung g) 
 class ConcertEvent {
 private interpret: String;
 private price: number;
@@ -112,7 +112,7 @@ console.log(this.price);
 
 
 }
-// Lösung h) ...
+// Lösung h) 
 let concertArray: ConcertEvent[] = [
     new ConcertEvent("Mark Knopfler", 10.1),
     new ConcertEvent("Pink Floyd", 15.9),
