@@ -3,11 +3,11 @@
 /**
  * @var {number} age: Bitte anstatt der 24 dein Alter eintragen
  */
-let age = 24;
+let age = 23;
 /**
  * @var {string} firstName: Bitte anstatt 'Max' deinen Vornamen eintragen
  */
-let firstName = `Max`;
+let firstName = `Francisco`;
 function func1(age) {
     return 2021 - age;
 }
@@ -49,35 +49,48 @@ let events = [
 // Lösung a) 
 console.log (events.length);
 // Lösung b) 
-for (let i: number = 0;i < events.length; i++) {
-    console.log(length [i][0]);
-    console.log(length [i][1]);
+for (let i= 0; i < events.length; i++) {
+    console.log(events [i][0], events [i][1]);
 }
 // Lösung c) 
-function lösung(array: any[][]): number {
-let result: number = 0;
-for (let i: number = 1; i < array.length; i++) {
-    let currentNumber: number = events [i][1];
-    if (currentNumber > result)
-    result = currentNumber;
-}
-return result;
-}
-console.log(lösung(events));
-// Lösung d) 
-function lösung (name: string): boolean {
-    for (let i: number = 0; i < events.length; i++) {
+function maxPrice(array: any[][]): number{
+let resultat= 0;
+    for (let i=0; i< array.length; i++) {
+        if(array[i][1]> resultat){
+            resultat= array[i][1];
 
-    if (name == events [i][0])
-    return true;
-    }
-    return false;
+
+
+        }
+
+
 }
-console.log(lösung("Mariah Carey"));
+return resultat; 
+
+
+} 
+
+let max= maxPrice(events);
+console.log(max);
+
+// Lösung d) 
+function interpretSearch(array: any[][]), interpret: string): boolean {
+
+    for(let i= 0; i< array.length; i++) {
+        if(array[i][0]== interpret){
+return true;
+} 
+
+
+} 
+return false;
+}
+console.log(interpretSearch(events, "Mark Knopfler"));
+
 // Lösung e)
-funtion factorial(n: number): vold {
+function factorial(n: number): void {
 let result: number = 1;
-while (n < 0) {
+while (n > 0) {
 result *= n;
 n--;
 }
@@ -85,19 +98,20 @@ console.log(result);
 } 
 factorial(5);
 // Lösung f) 
-function lösung(): void {
-    for (let i: number = 1; i < 33; i++) {
-        console.log(i*3);
-    }
-    console.log(33);
-} 
-lösung();
+let count: number= 0;
+for(let i= 0; i<=100; i++){
+if(i % 3 == 0){
+count++;
+console.log(i);
+}
+}
+console.log("count ", count);
 // Lösung g) 
 class ConcertEvent {
-private interpret: String;
+private interpret: string;
 private price: number;
 
-constructor(interpret: String, price: number) {
+constructor(interpret: string, price: number) {
 this.interpret = interpret;
 this.price = price;
 

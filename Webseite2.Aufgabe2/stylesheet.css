@@ -99,18 +99,22 @@ aside {
   width: 50%;
 }
 
-@media (max-width: 50em) {
-  aside {
-    float: none;
-    width: auto;
-  }
+body {
+
+  background-color: #ED6C21;
+
 }
 
-@media (min-width: 50em) {
-  article {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+ 
+
+@media (min-width: 800px) {
+
+  body {
+
+    background-color: #EFCA08;
+
   }
+
 }
 
 q::before {
