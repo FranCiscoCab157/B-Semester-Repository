@@ -1,28 +1,34 @@
-"use strict";
 // -- [Aufgabe 1]
+
 /**
  * @var {number} age: Bitte anstatt der 24 dein Alter eintragen
  */
-let age = 23;
-/**
- * @var {string} firstName: Bitte anstatt 'Max' deinen Vornamen eintragen
- */
-let firstName = `Francisco`;
-function func1(age) {
-    return 2021 - age;
-}
-let output = func2(firstName);
-function func3(meal) {
-    console.log(`Ich esse gerne ${meal || "Pizza"}.`);
-    return func1(age) > 1995
-        ? `Ich gehöre zur Generation Z`
-        : `Ich gehöre zur Generation Y`;
-}
-console.log(output);
-function func2(name) {
-    console.log(`Ich heiße ${name}.`);
-    return func3();
-}
+ let age: number = 24;
+
+ /**
+  * @var {string} firstName: Bitte anstatt 'Max' deinen Vornamen eintragen
+  */
+ let firstName: string = `Max`;
+ 
+ function func1(age: number): number {
+   return 2021 - age;
+ }
+ 
+ let output: string = func2(firstName);
+ 
+ function func3(meal?: string): string {
+   console.log(`Ich esse gerne ${meal || "Pizza"}.`);
+   return func1(age) > 1995
+     ? `Ich gehöre zur Generation Z`
+     : `Ich gehöre zur Generation Y`;
+ }
+ 
+ console.log(output);
+ 
+ function func2(name: string): string {
+   console.log(`Ich heiße ${name}.`);
+   return func3();
+ }
 /* -- HIER BITTE IHRE LÖSUNG ZUR AUFGABE 1 EINTRAGEN
  * ...1. 23 
       2. Ich heiße Francisco.
@@ -74,7 +80,7 @@ let max= maxPrice(events);
 console.log(max);
 
 // Lösung d) 
-function interpretSearch(array: any[][]), interpret: string): boolean {
+function interpretSearch(array: any[][], interpret: string): boolean {
 
     for(let i= 0; i< array.length; i++) {
         if(array[i][0]== interpret){

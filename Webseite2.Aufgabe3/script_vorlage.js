@@ -3,11 +3,11 @@
 /**
  * @var {number} age: Bitte anstatt der 24 dein Alter eintragen
  */
-let age = 23;
+let age = 24;
 /**
  * @var {string} firstName: Bitte anstatt 'Max' deinen Vornamen eintragen
  */
-let firstName = `Francisco`;
+let firstName = `Max`;
 function func1(age) {
     return 2021 - age;
 }
@@ -24,7 +24,7 @@ function func2(name) {
     return func3();
 }
 /* -- HIER BITTE IHRE LÖSUNG ZUR AUFGABE 1 EINTRAGEN
- * ...1. 23 
+ * ...1. 23
       2. Ich heiße Francisco.
       3. Ich gehöre zur Generation Z
       4. Ich esse gerne Pizza.
@@ -47,87 +47,67 @@ let events = [
 ];
 // -- HIER BITTE IHRE LÖSUNG ZUR AUFGABE 2 EINTRAGEN
 // Lösung a) 
-console.log (events.length);
+console.log(events.length);
 // Lösung b) 
-for (let i= 0; i < events.length; i++) {
-    console.log(events [i][0], events [i][1]);
+for (let i = 0; i < events.length; i++) {
+    console.log(events[i][0], events[i][1]);
 }
 // Lösung c) 
-function maxPrice(array: any[][]): number{
-let resultat= 0;
-    for (let i=0; i< array.length; i++) {
-        if(array[i][1]> resultat){
-            resultat= array[i][1];
-
-
-
+function maxPrice(array) {
+    let resultat = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i][1] > resultat) {
+            resultat = array[i][1];
         }
-
-
+    }
+    return resultat;
 }
-return resultat; 
-
-
-} 
-
-let max= maxPrice(events);
+let max = maxPrice(events);
 console.log(max);
-
 // Lösung d) 
-function interpretSearch(array: any[][]), interpret: string): boolean {
-
-    for(let i= 0; i< array.length; i++) {
-        if(array[i][0]== interpret){
-return true;
-} 
-
-
-} 
-return false;
+function interpretSearch(array, interpret) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i][0] == interpret) {
+            return true;
+        }
+    }
+    return false;
 }
 console.log(interpretSearch(events, "Mark Knopfler"));
-
 // Lösung e)
-function factorial(n: number): void {
-let result: number = 1;
-while (n > 0) {
-result *= n;
-n--;
+function factorial(n) {
+    let result = 1;
+    while (n > 0) {
+        result *= n;
+        n--;
+    }
+    console.log(result);
 }
-console.log(result);
-} 
 factorial(5);
 // Lösung f) 
-let count: number= 0;
-for(let i= 0; i<=100; i++){
-if(i % 3 == 0){
-count++;
-console.log(i);
-}
+let count = 0;
+for (let i = 0; i <= 100; i++) {
+    if (i % 3 == 0) {
+        count++;
+        console.log(i);
+    }
 }
 console.log("count ", count);
 // Lösung g) 
 class ConcertEvent {
-private interpret: string;
-private price: number;
-
-constructor(interpret: string, price: number) {
-this.interpret = interpret;
-this.price = price;
-
-}
-show(): void {
-console.log(this.interpret);
-console.log(this.price);
-
-
-}
-
-
-
+    interpret;
+    price;
+    constructor(interpret, price) {
+        this.interpret = interpret;
+        this.price = price;
+    }
+    show() {
+        console.log(this.interpret);
+        console.log(this.price);
+    }
 }
 // Lösung h) 
-let concertArray: ConcertEvent[] = [
+let concertArray = [
     new ConcertEvent("Mark Knopfler", 10.1),
     new ConcertEvent("Pink Floyd", 15.9),
     new ConcertEvent("Metallica", 20.1),
@@ -139,9 +119,8 @@ let concertArray: ConcertEvent[] = [
     new ConcertEvent("Helene Fischer", 3.1),
     new ConcertEvent("Bee Gees", 25.2)
 ];
-
-for (let i: number = 0; i < concertArray.length; i++) {
+for (let i = 0; i < concertArray.length; i++) {
     concertArray[i].show();
 }
 //# sourceMappingURL=script_vorlage.js.map
-
+//# sourceMappingURL=script_vorlage.js.map
