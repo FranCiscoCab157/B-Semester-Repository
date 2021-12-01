@@ -19,7 +19,7 @@ var script;
         setTimeout(function () {
             clearInput();
         }, 100);
-    });
+    }); 
     function createEvent(sehenswürdigkeitText, preisText, datumText, uhrzeitText, save) {
         let tabellenEintrag = document.createElement("tr");
         let sehenswürdigkeit = document.createElement("td");
