@@ -1,77 +1,76 @@
 "use strict";
-var testNamespace;
-(function (testNamespace) {
-    const inputInterpret = document.getElementById("input-interpret");
-    const inputPrice = document.getElementById("input-price");
-    const display = document.querySelector("#display");
-    const myButton = document.querySelector("#Event");
-    myButton.addEventListener("click", mybuttonHandler);
-    console.log(inputInterpret);
-    console.log(inputPrice);
-    let array = [12, 15, 17, 20];
-    let arrayString = JSON.stringify(array);
-    localStorage.setItem("localStorageElement", arrayString);
-    function mybuttonHandler() {
-        let interpretValue = inputInterpret.value;
-        let priceValue = inputPrice.value;
-        //console.log("button click");
-        let arrayFromStorageAsString = localStorage.getItem("localStorageElement");
-        let numbersArray;
-        JSON.parse(arrayFromStorageAsString);
-        console.log(numbersArray);
-        console.log(numbersArray);
-        console.log(numbersArray[0] * numbersArray[2]);
-        // display.textContent= interpretValue + "; " +priceValue;
-        let newElement = document.createElement("div");
-        newElement.textContent = interpretValue + "; " + priceValue;
-        display.appendChild(newElement);
+var script;
+(function (script) {
+    const table = document.getElementById("Tabelle");
+    const sehenswürdigkeitInput = (document.getElementById("Sehenswürdigkeit"));
+    const preisInput = (document.getElementById("Preis"));
+    const datumInput = (document.getElementById("Datum"));
+    const submit = (document.getElementById("submit"));
+    const clear = (document.getElementById("clear"));
+    let rows = [];
+    let loadRows = [];
+    let savedRows;
+    window.addEventListener("load", () => {
+        loadTable();
+    });
+    submit.addEventListener("click", () => {
+        console.log("test");
+        createEvent(sehenswürdigkeitInput.value, preisInput.value, datumInput.value.substring(0, 10), datumInput.value.substring(11, 16), true);
+        setTimeout(function () {
+            clearInput();
+        }, 100);
+    });
+    function createEvent(sehenswürdigkeitText, preisText, datumText, uhrzeitText, save) {
+        let tabellenEintrag = document.createElement("tr");
+        let sehenswürdigkeit = document.createElement("td");
+        sehenswürdigkeit.textContent = sehenswürdigkeitText;
+        let preis = document.createElement("td");
+        preis.textContent = preisText;
+        let datum = document.createElement("td");
+        datum.textContent = datumText;
+        let uhrzeit = document.createElement("td");
+        uhrzeit.textContent = uhrzeitText;
+        let löschZeile = document.createElement("td");
+        let löschButton = document.createElement("button");
+        löschButton.innerHTML = "LÖSCHEN";
+        table.appendChild(tabellenEintrag);
+        tabellenEintrag.appendChild(sehenswürdigkeit);
+        tabellenEintrag.appendChild(preis);
+        tabellenEintrag.appendChild(datum);
+        tabellenEintrag.appendChild(uhrzeit);
+        tabellenEintrag.appendChild(löschZeile);
+        löschZeile.appendChild(löschButton);
+        if (save) {
+            let saveRow = {
+                sehenswürdigkeit: tabellenEintrag.textContent,
+                preis: preis.textContent,
+                datum: datum.textContent,
+                uhrzeit: uhrzeit.textContent
+            };
+            rows.push(saveRow);
+            savedRows = JSON.stringify(rows);
+            console.log(savedRows);
+            localStorage.setItem("savedRows", savedRows);
+        }
+        löschButton.addEventListener("click", () => {
+            table.removeChild(tabellenEintrag);
+        });
     }
-})(testNamespace || (testNamespace = {}));
-function getElements() {
-    inputElem = document.getElementsByTagName("input")[0];
-    inputElem2 = document.getElementsByTagName("input")[1];
-    dateInput = document.getElementById("dateInput");
-    timeInput = document.getElementById("timeInput");
-    button = document.getElementById("addBtn");
-    selectElem = document.getElementById("categoryFilter");
-}
-function addListeners() {
-    button.addEventListener("click", addEntry, false);
-    selectElem.addEventListener("change", filterEntries, false);
-}
-function addEntry(event) {
-    let inputValue = inputElem.value;
-    inputElem.value = "";
-    let inputValue2 = inputElem2.value;
-    inputElem2.value = "";
-    let dateValue = dateInput.value;
-    dateInput.value = "";
-    let timeValue = dateInput.value;
-    dateInput.value = "";
-    let obj = {
-        id: _uuid(),
-        todo: inputValue,
-        category: inputValue2,
-        date: dateValue,
-        time: timeValue,
-        done: false,
-    };
-    function rendowRow({ todo: inputValue, category: inputValue2, id, done }) {
-        let table = document.getElementById("todoTable");
-        let trElem = document.createElement("tr");
-        table.appendChild(trElem);
-        rendowRow(obj);
-        todoList.push(obj);
-        save();
-        updateSelectOptions();
+    function clearInput() {
+        sehenswürdigkeitInput.value = "";
+        preisInput.value = "";
+        datumInput.value = "";
     }
-    function localStorage() {
-        let concertEvent = {
-            interpret: "Mark Knopfler",
-            price: 10.1
-        };
-        console.log(concertEvent.interpret);
+    function loadTable() {
+        if (localStorage.length < 1)
+            return;
+        loadRows = JSON.parse(localStorage.getItem("savedRows"));
+        console.log(loadRows);
+        for (let i = 0; i < loadRows.length; i++) {
+            createEvent(loadRows[i].sehenswürdigkeit, loadRows[i].preis, loadRows[i].datum, loadRows[i].uhrzeit, false);
+        }
+        rows = loadRows;
+        loadRows = [];
     }
-    localStorage.setItem("interpret", JSON.stringify);
-}
+})(script || (script = {}));
 //# sourceMappingURL=script.js.map

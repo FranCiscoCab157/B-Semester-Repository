@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Francisco">
     <title>Sehenswürdigkeiten</title>
-    <script src="script.ts" defer></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
     </head>
@@ -55,50 +55,55 @@
      <img src="./Bilder/Elevador.jpg" alt="Elevador" width="300" height="333"> <br>
      <i>Aufzug</i> <br>
 
-     <h2>Kosten der jeweiligen Sehenswürdigkeiten:</h2>
-     <table class="center" border="5"> 
-        <tr>
-          <th>Pelourinho</th>
-          <th>Farol</th>
-          <th>Solar-Unhao</th>
-          <th>Aufzug</th>
-      </tr>
-      <tr>
-      <td>kostenlos</td>
-      <td>kostenlos</td>
-      <td>ca. 20€</td>
-      <td>1€</td>
-      
-      
-      </tr>
-      </table>
-      <p><i>Umgerechnet</i></p>
-
-      <label>Interpret</label> <br>
-      <input id="input-interpret" type="text" name="Interpret" placeholder="Interpret" /> <br>
-      <input id="input-price" type="number" name="price" placeholder="Price"/>
-      <div id="display"></div>
-      <input type="datetime-local" id="Event" name="birthdaytime">
-      <button>Enter Event</button>
-
-      <table class="center" border="2"> 
-        <tr>
-          <th>Interpret</th>
-          <th>Price</th>
-         </tr>
-
-      <tr>
-      <td></td>
-      <td></td>
-
-        
-    </tr>
-</table>
      
-      
+<h2>Kosten der jeweiligen Sehenswürdigkeiten:</h2>
+<table class="center" border="5"> 
+   <tr>
+     <th>Pelourinho</th>
+     <th>Farol</th>
+     <th>Solar-Unhao</th>
+     <th>Aufzug</th>
+ </tr>
+ <tr>
+ <td>kostenlos</td>
+ <td>kostenlos</td>
+ <td>ca. 20€</td>
+ <td>1€</td>
+
+ </table>
+
 
      
-    </body>
+
+     
+      
+         
+    <input id="Sehenswürdigkeit" type="text" name="Sehenswürdigkeit" placeholder="gewünschte Sehenswürdigkeit" /> <br>
+    <input id="Preis" type="number" name="preis" placeholder="Preis"/> <br>
+    <label>EVENTS TABLE</label>
+    <div id="display"></div>
+    <input type="datetime-local" id="Datum" name="eventtime">
+    <button id="submit">Submit</button>
+    
+    
+    <table id="Tabelle">
+        <tr>
+          <th>Sehenswürdigkeit</th>
+          <th>Preis</th>
+          <th>Datum</th>
+          <th>Uhrzeit</th>
+          <th></th>
+        </tr>
+      </table>   
+
+
+      
+  
+  
+  
+  <hr>
+      </body>
+
 <h2>Fun Fact:</h2>
 <p>In dem alten Viertel Pelourinho, wurde das Musikvideo von "They don't care about us" von Michael Jackson gefilmt!</p>
 <div class="Musikvideo">
