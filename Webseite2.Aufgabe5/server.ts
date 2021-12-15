@@ -18,7 +18,7 @@ const server: http.Server = http.createServer(
       let url: URL = new URL(request.url || "", `http://${request.headers.host}`); 
       switch (url.pathname) { 
         case "/":
-          response.write("Server erreichbar");
+          response.write("server available");
           break;
         case "/convertDate":
           let sentDate: string = url.searchParams.get("date") || ""; 
@@ -32,6 +32,7 @@ const server: http.Server = http.createServer(
 );
 
 function sentDate(date: string): string {
+  
   let month: string;
 
   switch(date.substring(6, 8)){
@@ -72,7 +73,8 @@ function sentDate(date: string): string {
         break;
   }
   
-  return "Day: " + date.substring(9, 11) + ", " + "Month: " + month + ", " + "Year: " + date.substring(1, 5);
+ 
+  return "Day: " + date.substring(2, 11) + ", " + "Month: " + month + ", " + "Year: " + date.substring(10, 2);
 }
   
 
