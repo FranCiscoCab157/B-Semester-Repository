@@ -1,7 +1,7 @@
 "use strict";
-const datum = document.getElementById("datum");
-const senden = document.getElementById("enter");
-const antwort = document.getElementById("antwort");
+const datum = document.getElementById("date");
+const send = document.getElementById("enter");
+const answer = document.getElementById("answer");
 const url = "http://127.0.0.1:3000";
 const path = "/convertDate";
 
@@ -25,5 +25,5 @@ function datetoServer2(serverResponse) {
     let newDate = document.createElement("p");
     newDate.className = "serverResponse";
     newDate.textContent = serverResponse;
-    antwort.appendChild(newDate);
+    answer.appendChild(newDate);
 }
