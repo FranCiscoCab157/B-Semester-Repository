@@ -1,7 +1,7 @@
 "use strict";
-const datum = document.getElementById("datum");
+const date = document.getElementById("date");
 const senden = document.getElementById("enter");
-const antwort = document.getElementById("antwort");
+const answer = document.getElementById("answer");
 const url = "http://127.0.0.1:3000";
 const path = "/convertDate";
 
