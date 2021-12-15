@@ -11,19 +11,21 @@ const server: http.Server = http.createServer(
 
       let url: URL = new URL(request.url || "", `http://${request.headers.host}`);
       switch (url.pathname) { 
+        
+        
         case "/":
           response.write("Server erreichbar");
           break;
         case "/convertDate":
           let sentDate: string = url.searchParams.get("date") || "";
+         
           response.end(convertAndPrintDate(sentDate)); 
           break;
         default:
           response.statusCode = 404; 
       }  
-      response.end();
-    }
-);
+      response.end();}
+)
 
 function convertAndPrintDate(date: string): 
 
@@ -36,4 +38,3 @@ server.listen(port, hostname, () =>
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 
-//Starten mit: node ./Webseite2.Aufgabe5/server/server.js
