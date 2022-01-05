@@ -1,5 +1,6 @@
 namespace client {
-    //HTML-Elemente:
+    
+    //HTML:
     const table: HTMLElement = document.getElementById("table");
     const SehenswürdigkeitInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Sehenswürdigkeit"));
     const PreisInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Preis"));
@@ -7,7 +8,8 @@ namespace client {
     const submit: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("submit"));
 
 
-    //Server-Stuff:
+    
+    //Server:
     const _url: string = "http://localhost:3000/";
     const portSingle: string = "SehenswürdigkeitEvent";
     const portAll: string = "SehenswürdigkeitEvents";
@@ -34,8 +36,7 @@ namespace client {
         eventsFromServer = JSON.parse(text);
         console.log(eventsFromServer);
 
-        //Events in Tabelle laden:
-        for (let i: number = 0; i < eventsFromServer.length; i++) {
+ for (let i: number = 0; i < eventsFromServer.length; i++) {
             createEvent(eventsFromServer[i].Sehenswürdigkeit, eventsFromServer[i].Preis, 
                         eventsFromServer[i].Datum, eventsFromServer[i].Uhrzeit);
         }
@@ -84,7 +85,7 @@ namespace client {
         Uhrzeit.textContent = UhrzeitText;
         let trashContainer: HTMLElement = document.createElement("td");
         let trash: HTMLElement = document.createElement("i");
-        trash.className = "fa fa-trash";
+        trash.className = "trash";
 
         table.appendChild(tableRow);
         tableRow.appendChild(Sehenswürdigkeit);
