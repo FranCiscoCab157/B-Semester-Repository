@@ -2,7 +2,7 @@
 var script;
 (function (script) {
     const table = document.getElementById("Tabelle");
-    const sehenswürdigkeitInput = (document.getElementById("Sehenswürdigkeit"));
+    const SehenswürdigkeitInput = (document.getElementById("Sehenswürdigkeit"));
     const preisInput = (document.getElementById("Preis"));
     const datumInput = (document.getElementById("Datum"));
     const submit = (document.getElementById("submit"));
@@ -15,37 +15,33 @@ var script;
     });
     submit.addEventListener("click", () => {
         console.log("test");
-        createEvent(sehenswürdigkeitInput.value, preisInput.value, datumInput.value.substring(0, 10), datumInput.value.substring(11, 16), true);
+        createEvent(SehenswürdigkeitInput.value, preisInput.value, datumInput.value.substring(0, 10), datumInput.value.substring(11, 16), true);
         setTimeout(function () {
             clearInput();
         }, 100);
-    }); 
-    function createEvent(sehenswürdigkeitText, preisText, datumText, uhrzeitText, save) {
+    });
+    function createEvent(SehenswürdigkeitText, preisText, datumText, SehenswürdigkeitText, save) {
         let tabellenEintrag = document.createElement("tr");
-        let sehenswürdigkeit = document.createElement("td");
-        sehenswürdigkeit.textContent = sehenswürdigkeitText;
+        let Sehenswürdigkeit = document.createElement("td");
+        Sehenswürdigkeit.textContent = SehenswürdigkeitText;
         let preis = document.createElement("td");
         preis.textContent = preisText;
         let datum = document.createElement("td");
         datum.textContent = datumText;
-        let uhrzeit = document.createElement("td");
-        uhrzeit.textContent = uhrzeitText;
         let löschZeile = document.createElement("td");
         let löschButton = document.createElement("button");
-        löschButton.innerHTML = "LÖSCHEN";
+        löschButton.innerHTML = "Löschen";
         table.appendChild(tabellenEintrag);
-        tabellenEintrag.appendChild(sehenswürdigkeit);
+        tabellenEintrag.appendChild(Sehenswürdigkeit);
         tabellenEintrag.appendChild(preis);
         tabellenEintrag.appendChild(datum);
-        tabellenEintrag.appendChild(uhrzeit);
         tabellenEintrag.appendChild(löschZeile);
         löschZeile.appendChild(löschButton);
         if (save) {
             let saveRow = {
-                sehenswürdigkeit: tabellenEintrag.textContent,
+                Sehenswürdigkeit: tabellenEintrag.textContent,
                 preis: preis.textContent,
                 datum: datum.textContent,
-                uhrzeit: uhrzeit.textContent
             };
             rows.push(saveRow);
             savedRows = JSON.stringify(rows);
@@ -57,7 +53,7 @@ var script;
         });
     }
     function clearInput() {
-        sehenswürdigkeitInput.value = "";
+        SehenswürdigkeitInput.value = "";
         preisInput.value = "";
         datumInput.value = "";
     }
@@ -67,7 +63,7 @@ var script;
         loadRows = JSON.parse(localStorage.getItem("savedRows"));
         console.log(loadRows);
         for (let i = 0; i < loadRows.length; i++) {
-            createEvent(loadRows[i].sehenswürdigkeit, loadRows[i].preis, loadRows[i].datum, loadRows[i].uhrzeit, false);
+            createEvent(loadRows[i].Sehenswürdigkeit, loadRows[i].preis, loadRows[i].datum, false);
         }
         rows = loadRows;
         loadRows = [];
