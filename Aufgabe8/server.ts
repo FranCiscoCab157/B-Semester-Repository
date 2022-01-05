@@ -3,7 +3,7 @@ import * as mongo from "mongodb";
 
 const hostname: string = "127.0.0.1"; //# localhost
 const port: number = 3000;
-const mongoUrl: string = "mongodb://localhost:27017"; 
+const mongoUrl: string = "mongodb://localhost:27017/mydb"; 
 let mongoClient: mongo.MongoClient = new mongo.MongoClient(mongoUrl);
 
 

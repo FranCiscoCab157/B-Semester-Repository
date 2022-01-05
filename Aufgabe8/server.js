@@ -4,7 +4,7 @@ const http = require("http");
 const mongo = require("mongodb");
 const hostname = "127.0.0.1"; //#localhost
 const port = 3000;
-const mongoUrl = "mongodb://localhost:27017"; 
+const mongoUrl = "mongodb://localhost:27017/mydb"; 
 let mongoClient = new mongo.MongoClient(mongoUrl);
 
 async function dbFind(
