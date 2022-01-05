@@ -71,7 +71,7 @@ namespace client {
         console.log("event sent");
     }
 
-    //Events in Tabelle packen (bei Submit oder Neu-Laden der Seite):
+   
     function createEvent(SehenswürdigkeitText: string, PreisText: string, DatumText: string, UhrzeitText: string): void {
         let tableRow: HTMLElement = document.createElement("tr");
         let Sehenswürdigkeit: HTMLElement = document.createElement("td");
