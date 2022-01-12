@@ -2,31 +2,25 @@
 var client;
 (function (client) {
     //HTML:
-    
-        const table = document.getElementById("table");
-        const SehenswürdigkeitInput = (document.getElementById("Sehenswürdigkeit"));
-        const PreisInput = (document.getElementById("Preis"));
-        const DatumInput = (document.getElementById("Datum"));
-        const submit = (document.getElementById("submit"));
-  
+    const table = document.getElementById("table");
+    const SehenswürdigkeitInput = (document.getElementById("Sehenswürdigkeit"));
+    const PreisInput = (document.getElementById("Preis"));
+    const DatumInput = (document.getElementById("Datum"));
+    const submit = (document.getElementById("submit"));
     //Server:
-
-        const _url = "http://localhost:3000/";
-        const portSingle = "SehenswürdigkeitEvent";
-        const portAll = "SehenswürdigkeitEvents";
-        let eventsFromServer = [];
-        window.addEventListener("load", () => {
+    const _url = "http://localhost:3000/";
+    const portSingle = "SehenswürdigkeitEvent";
+    const portAll = "SehenswürdigkeitEvents";
+    let eventsFromServer = [];
+    window.addEventListener("load", () => {
         getEventsFromServer();
     });
-   
     submit.addEventListener("click", onSubmitEvent);
-   
     async function getEventsFromServer() {
         let response = await fetch(_url + portAll);
         let text = await response.text();
         eventsFromServer = JSON.parse(text);
         console.log(eventsFromServer);
-    
         for (let i = 0; i < eventsFromServer.length; i++) {
             createEvent(eventsFromServer[i].Sehenswürdigkeit, eventsFromServer[i].Preis, eventsFromServer[i].Datum, eventsFromServer[i].Uhrzeit);
         }
@@ -55,7 +49,6 @@ var client;
         });
         console.log("event sent");
     }
-
     function createEvent(SehenswürdigkeitText, PreisText, DatumText, UhrzeitText) {
         let tableRow = document.createElement("tr");
         let Sehenswürdigkeit = document.createElement("td");
@@ -86,3 +79,4 @@ var client;
         DatumInput.value = "";
     }
 })(client || (client = {}));
+//# sourceMappingURL=client.js.map
