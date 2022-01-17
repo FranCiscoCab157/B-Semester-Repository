@@ -1,8 +1,8 @@
 namespace client {
     
     //HTML:
-    const table: HTMLElement = document.getElementById("table");
-    const SehenswürdigkeitInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Sehenswürdigkeit"));
+    const table: HTMLElement = document.getElementById("Tabelle");
+    const SehenswuerdigkeitInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Sehenswuerdigkeit"));
     const PreisInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Preis"));
     const DatumInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Datum"));
     const submit: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("submit"));
@@ -11,18 +11,19 @@ namespace client {
     
     //Server:
     const _url: string = "http://localhost:3000/";
-    const portSingle: string = "SehenswürdigkeitEvent";
-    const portAll: string = "SehenswürdigkeitEvents";
+    const portSingle: string = "SehenswuerdigkeitEvent";
+    
+    const portAll: string = "SehenswuerdigkeitEvents";
 
-    interface SehenswürdigkeitEvent {
+    interface SehenswuerdigkeitEvent {
         index: number;
-        Sehenswürdigkeit: string; 
+        Sehenswuerdigkeit: string; 
         Preis: string;
         Datum: string;
         Uhrzeit: string;
        
     }
-    let eventsFromServer: SehenswürdigkeitEvent[] = [];
+    let eventsFromServer: SehenswuerdigkeitEvent[] = [];
 
     window.addEventListener("load", () => {
         getEventsFromServer();
@@ -37,7 +38,7 @@ namespace client {
         console.log(eventsFromServer);
 
  for (let i: number = 0; i < eventsFromServer.length; i++) {
-            createEvent(eventsFromServer[i].Sehenswürdigkeit, eventsFromServer[i].Preis, 
+            createEvent(eventsFromServer[i].Sehenswuerdigkeit, eventsFromServer[i].Preis, 
                         eventsFromServer[i].Datum, eventsFromServer[i].Uhrzeit);
         }
     }
@@ -45,19 +46,19 @@ namespace client {
     async function onSubmitEvent(event: Event): Promise<void> {
         event.preventDefault();
 
-        let SehenswürdigkeitEvent: SehenswürdigkeitEvent = {
+        let SehenswuerdigkeitEvent: SehenswuerdigkeitEvent = {
             index: eventsFromServer.length - 1,
-            Sehenswürdigkeit: SehenswürdigkeitInput.value,
+            Sehenswuerdigkeit: SehenswuerdigkeitInput.value,
             Datum: DatumInput.value.substring(0, 10),
             Uhrzeit: DatumInput.value.substring(11, 16),
             Preis: PreisInput.value
         };
-        eventsFromServer.push(SehenswürdigkeitEvent);
-        console.log(SehenswürdigkeitEvent);
+        eventsFromServer.push(SehenswuerdigkeitEvent);
+        console.log(SehenswuerdigkeitEvent);
 
-        createEvent(SehenswürdigkeitEvent.Sehenswürdigkeit, SehenswürdigkeitEvent.Preis, SehenswürdigkeitEvent.Datum, SehenswürdigkeitEvent.Uhrzeit);
+        createEvent(SehenswuerdigkeitEvent.Sehenswuerdigkeit, SehenswuerdigkeitEvent.Preis, SehenswuerdigkeitEvent.Datum, SehenswuerdigkeitEvent.Uhrzeit);
 
-        sendJSONStringWithPost(_url + portSingle, JSON.stringify(SehenswürdigkeitEvent));
+        sendJSONStringWithPost(_url + portSingle, JSON.stringify(SehenswuerdigkeitEvent));
 
         setTimeout(() => {
             clearInput();
@@ -73,10 +74,10 @@ namespace client {
     }
 
    
-    function createEvent(SehenswürdigkeitText: string, PreisText: string, DatumText: string, UhrzeitText: string): void {
+    function createEvent(SehenswuerdigkeitText: string, PreisText: string, DatumText: string, UhrzeitText: string): void {
         let tableRow: HTMLElement = document.createElement("tr");
-        let Sehenswürdigkeit: HTMLElement = document.createElement("td");
-        Sehenswürdigkeit.textContent = SehenswürdigkeitText;
+        let Sehenswuerdigkeit: HTMLElement = document.createElement("td");
+        Sehenswuerdigkeit.textContent = SehenswuerdigkeitText;
         let Preis: HTMLElement = document.createElement("td");
         Preis.textContent = PreisText;
         let Datum: HTMLElement = document.createElement("td");
@@ -88,7 +89,7 @@ namespace client {
         trash.className = "trash";
 
         table.appendChild(tableRow);
-        tableRow.appendChild(Sehenswürdigkeit);
+        tableRow.appendChild(Sehenswuerdigkeit);
         tableRow.appendChild(Datum);
         tableRow.appendChild(Uhrzeit);
         tableRow.appendChild(Preis);
@@ -101,7 +102,7 @@ namespace client {
     }
 
     function clearInput(): void {
-        SehenswürdigkeitInput.value = "";
+        SehenswuerdigkeitInput.value = "";
         PreisInput.value = "";
         DatumInput.value = "";
     }

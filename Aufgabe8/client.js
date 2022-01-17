@@ -2,15 +2,15 @@
 var client;
 (function (client) {
     //HTML:
-    const table = document.getElementById("table");
-    const SehenswürdigkeitInput = (document.getElementById("Sehenswürdigkeit"));
+    const table = document.getElementById("Tabelle");
+    const SehenswuerdigkeitInput = (document.getElementById("Sehenswuerdigkeit"));
     const PreisInput = (document.getElementById("Preis"));
     const DatumInput = (document.getElementById("Datum"));
     const submit = (document.getElementById("submit"));
     //Server:
     const _url = "http://localhost:3000/";
-    const portSingle = "SehenswürdigkeitEvent";
-    const portAll = "SehenswürdigkeitEvents";
+    const portSingle = "SehenswuerdigkeitEvent";
+    const portAll = "SehenswuerdigkeitEvents";
     let eventsFromServer = [];
     window.addEventListener("load", () => {
         getEventsFromServer();
@@ -22,22 +22,22 @@ var client;
         eventsFromServer = JSON.parse(text);
         console.log(eventsFromServer);
         for (let i = 0; i < eventsFromServer.length; i++) {
-            createEvent(eventsFromServer[i].Sehenswürdigkeit, eventsFromServer[i].Preis, eventsFromServer[i].Datum, eventsFromServer[i].Uhrzeit);
+            createEvent(eventsFromServer[i].Sehenswuerdigkeit, eventsFromServer[i].Preis, eventsFromServer[i].Datum, eventsFromServer[i].Uhrzeit);
         }
     }
     async function onSubmitEvent(event) {
         event.preventDefault();
-        let SehenswürdigkeitEvent = {
+        let SehenswuerdigkeitEvent = {
             index: eventsFromServer.length - 1,
-            Sehenswürdigkeit: SehenswürdigkeitInput.value,
+            Sehenswuerdigkeit: SehenswuerdigkeitInput.value,
             Datum: DatumInput.value.substring(0, 10),
             Uhrzeit: DatumInput.value.substring(11, 16),
             Preis: PreisInput.value
         };
-        eventsFromServer.push(SehenswürdigkeitEvent);
-        console.log(SehenswürdigkeitEvent);
-        createEvent(SehenswürdigkeitEvent.Sehenswürdigkeit, SehenswürdigkeitEvent.Preis, SehenswürdigkeitEvent.Datum, SehenswürdigkeitEvent.Uhrzeit);
-        sendJSONStringWithPost(_url + portSingle, JSON.stringify(SehenswürdigkeitEvent));
+        eventsFromServer.push(SehenswuerdigkeitEvent);
+        console.log(SehenswuerdigkeitEvent);
+        createEvent(SehenswuerdigkeitEvent.Sehenswuerdigkeit, SehenswuerdigkeitEvent.Preis, SehenswuerdigkeitEvent.Datum, SehenswuerdigkeitEvent.Uhrzeit);
+        sendJSONStringWithPost(_url + portSingle, JSON.stringify(SehenswuerdigkeitEvent));
         setTimeout(() => {
             clearInput();
         }, 100);
@@ -49,10 +49,10 @@ var client;
         });
         console.log("event sent");
     }
-    function createEvent(SehenswürdigkeitText, PreisText, DatumText, UhrzeitText) {
+    function createEvent(SehenswuerdigkeitText, PreisText, DatumText, UhrzeitText) {
         let tableRow = document.createElement("tr");
-        let Sehenswürdigkeit = document.createElement("td");
-        Sehenswürdigkeit.textContent = SehenswürdigkeitText;
+        let Sehenswuerdigkeit = document.createElement("td");
+        Sehenswuerdigkeit.textContent = SehenswuerdigkeitText;
         let Preis = document.createElement("td");
         Preis.textContent = PreisText;
         let Datum = document.createElement("td");
@@ -63,7 +63,7 @@ var client;
         let trash = document.createElement("i");
         trash.className = "trash";
         table.appendChild(tableRow);
-        tableRow.appendChild(Sehenswürdigkeit);
+        tableRow.appendChild(Sehenswuerdigkeit);
         tableRow.appendChild(Datum);
         tableRow.appendChild(Uhrzeit);
         tableRow.appendChild(Preis);
@@ -74,7 +74,7 @@ var client;
         });
     }
     function clearInput() {
-        SehenswürdigkeitInput.value = "";
+        SehenswuerdigkeitInput.value = "";
         PreisInput.value = "";
         DatumInput.value = "";
     }

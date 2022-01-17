@@ -1,15 +1,19 @@
 import * as http from "http";
 import * as mongo from "mongodb";
 
-const hostname: string = "127.0.0.1"; //# localhost
+const hostname: string = "127.0.0.1"; // localhost
 const port: number = 3000;
-const mongoUrl: string = "mongodb://localhost:27017/mydb"; 
+const mongoUrl: string = "mongodb://localhost:27017"; 
 let mongoClient: mongo.MongoClient = new mongo.MongoClient(mongoUrl);
 
 
 async function dbFind (
 
-    db: string, collection: string, requestObject: any, response: http.ServerResponse) {
+    db: string, 
+    collection: string, 
+    requestObject: any, 
+    response: http.ServerResponse) 
+    {
  
   let result: any = await mongoClient
     .db(db)
@@ -30,13 +34,13 @@ const server: http.Server = http.createServer(
     let url: URL = new URL(request.url || "", `http://${request.headers.host}`);
 
         switch (url.pathname) {
-        case "/SehenswürdigkeitEvent": {
+        case "/SehenswuerdigkeitEvent": {
         await mongoClient.connect();
         switch (request.method) {
         case "GET":
         await dbFind(
               "Pelourinho",
-              "Sehenswürdigkeiten",
+              "Sehenswuerdigkeiten",
               {index: Number(url.searchParams.get("index"))},
         
               response
@@ -51,18 +55,21 @@ const server: http.Server = http.createServer(
             request.on("end", async () => {
               mongoClient
                 .db("Pelourinho")
-                .collection("Sehenswürdigkeiten")
+                .collection("Sehenswuerdigkeiten")
                 .insertOne(JSON.parse(jsonString));
             });
             break;
+            
         }
         break;
       }
-      case "/SehenswürdigkeitEvents": {
+
+      
+      case "/SehenswuerdigkeitEvents": {
       await mongoClient.connect();
       switch (request.method) {
       case "GET":
-      await dbFind("Pelourinho", "Sehenswürdigkeiten", {}, response);
+      await dbFind("Pelourinho", "Sehenswuerdigkeiten", {}, response);
       break;
         }
       break;

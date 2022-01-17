@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = require("http");
 const mongo = require("mongodb");
-const hostname = "127.0.0.1"; //# localhost
+const hostname = "127.0.0.1"; // localhost
 const port = 3000;
-const mongoUrl = "mongodb://localhost:27017/mydb";
+const mongoUrl = "mongodb://localhost:27017";
 let mongoClient = new mongo.MongoClient(mongoUrl);
 async function dbFind(db, collection, requestObject, response) {
     let result = await mongoClient
@@ -20,11 +20,11 @@ const server = http.createServer(async (request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
     let url = new URL(request.url || "", `http://${request.headers.host}`);
     switch (url.pathname) {
-        case "/SehenswürdigkeitEvent": {
+        case "/SehenswuerdigkeitEvent": {
             await mongoClient.connect();
             switch (request.method) {
                 case "GET":
-                    await dbFind("Pelourinho", "Sehenswürdigkeiten", { index: Number(url.searchParams.get("index")) }, response);
+                    await dbFind("Pelourinho", "Sehenswuerdigkeiten", { index: Number(url.searchParams.get("index")) }, response);
                     break;
                 case "POST":
                     let jsonString = "";
@@ -34,18 +34,18 @@ const server = http.createServer(async (request, response) => {
                     request.on("end", async () => {
                         mongoClient
                             .db("Pelourinho")
-                            .collection("Sehenswürdigkeiten")
+                            .collection("Sehenswuerdigkeiten")
                             .insertOne(JSON.parse(jsonString));
                     });
                     break;
             }
             break;
         }
-        case "/SehenswürdigkeitEvents": {
+        case "/SehenswuerdigkeitEvents": {
             await mongoClient.connect();
             switch (request.method) {
                 case "GET":
-                    await dbFind("Pelourinho", "Sehenswürdigkeiten", {}, response);
+                    await dbFind("Pelourinho", "Sehenswuerdigkeiten", {}, response);
                     break;
             }
             break;
