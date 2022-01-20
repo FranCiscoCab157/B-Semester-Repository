@@ -1,10 +1,13 @@
-namespace client {
+/*namespace client {
 
     //HTML:
     const table: HTMLElement = document.getElementById("Tabelle");
     const GefriergutInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Gefriergut"));
     const AblaufdatumInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Ablaufdatum"));
-    const submit: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("submit"));
+    const NotizenInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("Notizen"));
+    var submit: HTMLButtonElement = null;// <HTMLButtonElement>(document.getElementById("submit"));
+
+
 
 
     //Server:
@@ -18,6 +21,7 @@ namespace client {
         index: number;
         Gefriergut: string; 
         Ablaufdatum: Date;
+        Notizen: string;
        
     }
     let eventsFromServer: GefriergutEvent[] = [];
@@ -45,12 +49,13 @@ namespace client {
         let GefriergutEvent: GefriergutEvent = {
             index: eventsFromServer.length - 1,
             Gefriergut: GefriergutInput.value,
-            Ablaufdatum: AblaufdatumInput.value
+            Ablaufdatum: AblaufdatumInput.value,
+            Notizen: NotizenInput.value
         };
         eventsFromServer.push(GefriergutEvent);
         console.log(GefriergutEvent);
 
-        createEvent(GefriergutEvent.Gefriergut, GefriergutEvent.Ablaufdatum);
+        createEvent(GefriergutEvent.Gefriergut, GefriergutEvent.Ablaufdatum, GefriergutEvent.Notizen);
 
         sendJSONStringWithPost(_url + portSingle, JSON.stringify(GefriergutEvent));
 
@@ -68,12 +73,21 @@ namespace client {
     }
 
    
-    function createEvent(GefriergutText: string, AblaufdatumText: string, ): void {
+    function createEvent(GefriergutText: string, AblaufdatumDate: Date, NotizenText: string ): void {
         let tableRow: HTMLElement = document.createElement("tr");
+       
         let Gefriergut: HTMLElement = document.createElement("td");
         Gefriergut.textContent = GefriergutText;
+        
         let Ablaufdatum: HTMLElement = document.createElement("td");
-        Ablaufdatum.textContent = AblaufdatumText;
+        Ablaufdatum.textContent = AblaufdatumDate;
+        
+        let Notizen: HTMLElement = document.createElement("td");
+        Notizen.textContent = NotizenText;
+
+        let myDate = new Date(Date.now());
+        console.log(myDate, new Date());
+        
         let trashContainer: HTMLElement = document.createElement("td");
         let trash: HTMLElement = document.createElement("i");
         trash.className = "trash";
@@ -81,6 +95,7 @@ namespace client {
         table.appendChild(tableRow);
         tableRow.appendChild(Gefriergut);
         tableRow.appendChild(Ablaufdatum);
+        tableRow.appendChild(Notizen);
         tableRow.appendChild(trashContainer);
         trashContainer.appendChild(trash);
 
@@ -92,5 +107,7 @@ namespace client {
     function clearInput(): void {
         GefriergutInput.value = "";
         AblaufdatumInput.value = "";
+        NotizenInput.value = "";
     }
 }
+*/

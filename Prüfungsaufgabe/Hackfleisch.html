@@ -3,13 +3,12 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Gefriergut">
+    <meta name="author" content="Francisco">
     <title>Hinzufügen</title>
     <link rel="stylesheet" href="Stylesheet.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="client_Hinzufügen.js" defer></script>
+    <script src="client.js" defer></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +18,7 @@
 <body>
 
         <!--Sidebar-->
-        <div class="sidebar">
+               <div class="sidebar">
             <h2>Menü</h2>
             <ul class="nav">
               <li>
@@ -35,55 +34,20 @@
                 </a>
               </li>
               <li>
-                <a href="Detailansicht.html">
+                <a href="Detailsansicht.html">
                     <i class="fas fa-info"></i>
                   <span>Details</span>
                 </a>
               </li>
                </div>
-    
-     <!--Content-->
+
+        <!--Content-->      
 <div class="content">
 <main>
-    <h1><u>Gefriergut hinzufügen</u></h1> 
-    <div id="Hinzufügen">
-        <form>
-            <div> 
-                <label for="name">Gefriergut:</label><br>
-                <input id="Gefriergut" type="text" name="Gefriergut" placeholder="Gefriergut" required><br>
-
-                <label for="name">Ablaufdatum</label><br>
-                <input id="Ablaufdatum" type="Date" name="Ablaufdatum" placeholder="MM.JJ" required><br>
-
-                <label for="name">Notizen</label><br>
-                <input id="Notizen" type="text" name="Notizen" required>
-
-                <button id="submit" type="submit">+</button> 
-
-
-
-
-                <table id="Tabelle">
-                  <tr>
-                    <th><u>Gefriergut</u></th>
-                    <th><u>Ablaufdatum</u></th>
-                
-                    </tr>
-                </table>   
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-        </form>
- 
+    <h1><u>Hackfleisch:</u></h1> 
+    <ul id="Gefriergut">
+        <p><b>Ablaufdatum: 10.01.2022</b> - </p>
+   
     </ul>
 </div>
 </main>

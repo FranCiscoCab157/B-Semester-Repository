@@ -8,7 +8,7 @@
     <title>Hinzufügen</title>
     <link rel="stylesheet" href="Stylesheet.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="client.js" defer></script>
+    <script src="client_Übersicht.js" defer></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
                 </a>
               </li>
               <li>
-                <a href="Detailsansicht.html">
+                <a href="Detailansicht.html">
                     <i class="fas fa-info"></i>
                   <span>Details</span>
                 </a>
@@ -46,14 +46,16 @@
 <main>
     <h1><u>Übersicht Gefriergut:</u></h1> 
     <ul id="Gefriergut">
-        <p><b>Hackfleisch</b> - Ablaufdatum: 10.01.2022</p>
-        <p><b>Griechischer Joghurt mit Honig</b> - Ablaufdatum: 22.01.2022</p> 
-        <p><b>Karotten</b> - Ablaufdatum: 26.01.2022</p>
-        <p><b>Apfel</b> - Ablaufdatum: 19.01.2022</p>
-        <p><b>Banane</b> - Ablaufdatum: 17.01.2022</p>
-        <p><b>Hänchenbrust</b> - Ablaufdatum: 13.01.2022</p>
-        <p><b>Zwiebel</b> - Ablaufdatum: 24.01.2022</p>   
+  
     </ul>
+
+    <table id="GefriergutTabelle">
+      <tr>
+        <th><a href="Detailansicht.html?id=345"><u>Gefriergut</u></a> </th>
+        <th><u>Ablaufdatum</u></th>
+      </tr>
+    </table>  
+
 </div>
 </main>
 </body>

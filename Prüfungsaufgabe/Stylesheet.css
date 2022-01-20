@@ -1,12 +1,17 @@
 h1 { color: white; font-family: 'Bebas Neue', cursive; font-size: 50px; line-height: 26px; text-indent: 30px; text-align: center;}
 p { color: white; font-family: 'Bebas Neue', cursive; font-size: 1.2em; line-height: 26px; text-indent: 30px; text-align: center;}
 
+
+#GefriergutTabelle {margin-left: 500px; }
+
 #Gefriergut {font-size: 30px;}
 #Hinzufügen {
   width: 10em;
 	margin: 0 auto;
 	padding: 0;
 }
+#Notiz {width: 100vw;
+  height: 100vh;}
 
 table.center {color: white;
     margin-left: auto; 

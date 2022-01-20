@@ -9,7 +9,7 @@
     <title>Hinzufügen</title>
     <link rel="stylesheet" href="Stylesheet.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="client_Hinzufügen.js" defer></script>
+    <script type="text/javascript"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
                 </a>
               </li>
               <li>
-                <a href="Detailansicht.html">
+                <a href="Detailsansicht.html">
                     <i class="fas fa-info"></i>
                   <span>Details</span>
                 </a>
@@ -58,18 +58,15 @@
                 <label for="name">Notizen</label><br>
                 <input id="Notizen" type="text" name="Notizen" required>
 
-                <button id="submit" type="submit">+</button> 
+                <button type="submit">+</button> 
+
+                <script type="text/javascript">
+                    document.getElementById("Gefriergut").readOnly = true;
+                    document.getElementById("Gefriergut").value = new Date().toLocaleString('de-DE');
+                    </script>
 
 
-
-
-                <table id="Tabelle">
-                  <tr>
-                    <th><u>Gefriergut</u></th>
-                    <th><u>Ablaufdatum</u></th>
-                
-                    </tr>
-                </table>   
+           
 
             </div>
 
