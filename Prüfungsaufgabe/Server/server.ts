@@ -5,6 +5,21 @@ const hostname: string = "127.0.0.1"; // localhost
 const port: number = 3000;
 const mongoUrl: string = "mongodb://localhost:27017";
 let mongoClient: mongo.MongoClient = new mongo.MongoClient(mongoUrl);
+async function dbFindone(
+
+  db: string,
+  collection: string,
+  requestObject: any,
+  response: http.ServerResponse) {
+
+  let result: any = await mongoClient
+    .db(db)
+    .collection(collection)
+    .findOne(requestObject)
+
+  response.setHeader("Content-Type", "application/json");
+  response.write(JSON.stringify(result));
+}
 
 
 async function dbFind(
@@ -68,10 +83,38 @@ const server: http.Server = http.createServer(
         break
       };
 
+      case "/GetGefriergut_Detail": {
+        await mongoClient.connect();
+
+        if (request.method == "GET") {
+
+          var o_id = new mongo.ObjectId(url.searchParams.get("id"));
+          console.log(o_id)
+        
+        await dbFindone(
+          "Gefriergut",
+          "Hinzufügen",
+          { _id: o_id },
+
+
+          response
+        );
+
+
+        }
+
+
+
+
+     break
+     
+    
+    }
+
       case "/addGefriergut": {
 
         await mongoClient.connect();
-        console.log("kjhkjh")
+  
         if (request.method == "POST") {
 
           let jsonString: string = "";

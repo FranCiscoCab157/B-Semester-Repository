@@ -38,6 +38,7 @@ namespace client {
     });
 
     async function neuesGefriergut(event: Event): Promise<void> {
+
         event.preventDefault();
 
         let GefriergutAdd: Gefriergut = {

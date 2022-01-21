@@ -3,15 +3,24 @@ var client;
 (function (client) {
     //HTML:
     const table = document.getElementById("GefriergutTabelle");
+    var Gefriergut_Feld = null;
+    var Ablaufdatum_Feld = null;
+    var Notiz_Feld = null;
+    var Anlegedatum_Feld = null;
     var GefriergutListe = [];
     //Server:
     const _url = "http://localhost:3000/";
-    const webfunction = "GetGefriergut";
+    const webfunction = "GetGefriergut_Detail";
     window.addEventListener("load", () => {
+        Gefriergut_Feld = (document.getElementById("Gefriergut_Feld"));
+        Ablaufdatum_Feld = (document.getElementById("Ablaufdatum_Feld"));
+        Notiz_Feld = (document.getElementById("Notiz_Feld"));
+        Anlegedatum_Feld = (document.getElementById("Anlegedatum_Feld"));
         getGefriergutFromServer();
     });
     async function getGefriergutFromServer() {
-        let response = await fetch(_url + webfunction);
+        var parameter = window.location.search;
+        let response = await fetch(_url + webfunction + parameter);
         let text = await response.text();
         GefriergutListe = JSON.parse(text);
         console.log(GefriergutListe);
@@ -21,31 +30,13 @@ var client;
         for (const GefriergutTemp of GefriergutListe) {
             console.log(GefriergutTemp);
             let tableRow = document.createElement("tr");
-            let link = document.createElement("a");
-            link.href = "Detailansicht.html?id=" + GefriergutTemp._id;
             let Gefriergut = document.createElement("td");
             Gefriergut.textContent = GefriergutTemp.Gefriergut;
             let Ablaufdatum = document.createElement("td");
             Ablaufdatum.textContent = GefriergutTemp.Ablaufdatum;
-            let trashContainer = document.createElement("td");
-            let trash = document.createElement("i");
-            trash.className = "trash";
-            trash.innerHTML = '<button id="submit" type="delete">-</button>';
-            link.append(Gefriergut);
-            trashContainer.appendChild(trash);
-            tableRow.append(link, Ablaufdatum, trashContainer);
+            tableRow.append(Gefriergut, Ablaufdatum);
             table.append(tableRow);
         }
-        /* table.appendChild(tableRow);
-         tableRow.appendChild(Gefriergut);
-         tableRow.appendChild(Ablaufdatum);
-         tableRow.appendChild(Notizen);
-         tableRow.appendChild(trashContainer);
-         trashContainer.appendChild(trash);
- 
-         trash.addEventListener("click", (): void => {
-             table.removeChild(tableRow);
-         }); */
     }
 })(client || (client = {}));
-//# sourceMappingURL=client_%C3%9Cbersicht.js.map
+//# sourceMappingURL=client_Detailansicht.js.map

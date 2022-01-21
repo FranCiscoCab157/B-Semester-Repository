@@ -4,6 +4,7 @@ namespace client {
     const table: HTMLElement = document.getElementById("GefriergutTabelle");
 
     interface Gefriergut {
+        _id:string;
         index: number;
         Gefriergut: string;
         Ablaufdatum: string; 
@@ -47,6 +48,8 @@ namespace client {
             console.log(GefriergutTemp)
 
             let tableRow: HTMLElement = document.createElement("tr");
+            let link: HTMLAnchorElement = document.createElement("a");
+            link.href="Detailansicht.html?id="+GefriergutTemp._id
             
             let Gefriergut: HTMLElement = document.createElement("td");
             Gefriergut.textContent = GefriergutTemp.Gefriergut;
@@ -54,22 +57,24 @@ namespace client {
             let Ablaufdatum: HTMLElement = document.createElement("td");
             Ablaufdatum.textContent = GefriergutTemp.Ablaufdatum;
 
-            tableRow.append(Gefriergut, Ablaufdatum)
+            let trashContainer: HTMLElement = document.createElement("td");
+            let trash: HTMLElement = document.createElement("i");
+            trash.className = "trash";
+            trash.innerHTML='<button id="submit" type="delete">-</button>'
+
+            link.append(Gefriergut)
+            trashContainer.appendChild(trash);
+            tableRow.append(link, Ablaufdatum, trashContainer)
 
 
 
             table.append(tableRow)
         }
-       /*
+       
 
-        let myDate = new Date(Date.now());
-        console.log(myDate, new Date());
-        
-        let trashContainer: HTMLElement = document.createElement("td");
-        let trash: HTMLElement = document.createElement("i");
-        trash.className = "trash";
+      
 
-        table.appendChild(tableRow);
+       /* table.appendChild(tableRow);
         tableRow.appendChild(Gefriergut);
         tableRow.appendChild(Ablaufdatum);
         tableRow.appendChild(Notizen);

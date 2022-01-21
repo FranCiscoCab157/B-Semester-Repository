@@ -6,6 +6,14 @@ const hostname = "127.0.0.1"; // localhost
 const port = 3000;
 const mongoUrl = "mongodb://localhost:27017";
 let mongoClient = new mongo.MongoClient(mongoUrl);
+async function dbFindone(db, collection, requestObject, response) {
+    let result = await mongoClient
+        .db(db)
+        .collection(collection)
+        .findOne(requestObject);
+    response.setHeader("Content-Type", "application/json");
+    response.write(JSON.stringify(result));
+}
 async function dbFind(db, collection, requestObject, response) {
     let result = await mongoClient
         .db(db)
@@ -40,9 +48,17 @@ const server = http.createServer(async (request, response) => {
                 break;
             }
             ;
+        case "/GetGefriergut_Detail": {
+            await mongoClient.connect();
+            if (request.method == "GET") {
+                var o_id = new mongo.ObjectId(url.searchParams.get("id"));
+                console.log(o_id);
+                await dbFindone("Gefriergut", "Hinzufügen", { _id: o_id }, response);
+            }
+            break;
+        }
         case "/addGefriergut": {
             await mongoClient.connect();
-            console.log("kjhkjh");
             if (request.method == "POST") {
                 let jsonString = "";
                 request.on("data", data => {
