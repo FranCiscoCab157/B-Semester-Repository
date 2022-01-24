@@ -1,10 +1,10 @@
 namespace client {
 
     //HTML:
-    var GefriergutInput: HTMLInputElement = null;
-    var AblaufdatumInput: HTMLInputElement = null;
-    var NotizenInput: HTMLInputElement = null;
-    var submit: HTMLButtonElement = null;
+    let GefriergutInput: HTMLInputElement = null;
+    let AblaufdatumInput: HTMLInputElement = null;
+    let NotizenInput: HTMLInputElement = null;
+    let submit: HTMLButtonElement = null;
 
 
     interface Gefriergut {

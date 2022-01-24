@@ -14,6 +14,13 @@ async function dbFindone(db, collection, requestObject, response) {
     response.setHeader("Content-Type", "application/json");
     response.write(JSON.stringify(result));
 }
+async function dbdeleteone(db, collection, requestObject, response) {
+    let result = await mongoClient
+        .db(db)
+        .collection(collection)
+        .deleteOne(requestObject);
+    response.write("Okay");
+}
 async function dbFind(db, collection, requestObject, response) {
     let result = await mongoClient
         .db(db)
@@ -51,7 +58,7 @@ const server = http.createServer(async (request, response) => {
         case "/GetGefriergut_Detail": {
             await mongoClient.connect();
             if (request.method == "GET") {
-                var o_id = new mongo.ObjectId(url.searchParams.get("id"));
+                let o_id = new mongo.ObjectId(url.searchParams.get("id"));
                 console.log(o_id);
                 await dbFindone("Gefriergut", "Hinzufügen", { _id: o_id }, response);
             }
@@ -68,6 +75,15 @@ const server = http.createServer(async (request, response) => {
                     console.log(jsonString);
                     await dbInsert("Gefriergut", "Hinzufügen", JSON.parse(jsonString), response);
                 });
+            }
+            break;
+        }
+        case "/deleteGefriergut": {
+            await mongoClient.connect();
+            if (request.method == "GET") {
+                let o_id = new mongo.ObjectId(url.searchParams.get("id"));
+                console.log("Achtung Element wird gelöscht!:", o_id);
+                await dbdeleteone("Gefriergut", "Hinzufügen", { _id: o_id }, response);
             }
             break;
         }

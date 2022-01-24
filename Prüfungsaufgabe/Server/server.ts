@@ -21,6 +21,26 @@ async function dbFindone(
   response.write(JSON.stringify(result));
 }
 
+async function dbdeleteone(
+
+  db: string,
+  collection: string,
+  requestObject: any,
+  response: http.ServerResponse) {
+
+  let result: any = await mongoClient
+    .db(db)
+    .collection(collection)
+    .deleteOne(requestObject)
+
+  response.write("Okay");
+}
+
+
+
+
+
+
 
 async function dbFind(
 
@@ -29,7 +49,7 @@ async function dbFind(
   requestObject: any,
   response: http.ServerResponse) {
 
-  let result: any = await mongoClient
+  let result: mongo.WithId<mongo.Document>[] = await mongoClient
     .db(db)
     .collection(collection)
     .find(requestObject)
@@ -45,17 +65,17 @@ async function dbInsert(
   collection: string,
   requestObject: any,
   response: http.ServerResponse
-) { 
+) {
   requestObject.Anlegedatum = new Date();
   await mongoClient
 
-  .db(db)
-  .collection(collection)
-  .insertOne(requestObject)
-  .then(function(result){
-    console.log(result)
-  });
-  
+    .db(db)
+    .collection(collection)
+    .insertOne(requestObject)
+    .then(function (result) {
+      console.log(result)
+    });
+
 }
 
 const server: http.Server = http.createServer(
@@ -88,17 +108,17 @@ const server: http.Server = http.createServer(
 
         if (request.method == "GET") {
 
-          var o_id = new mongo.ObjectId(url.searchParams.get("id"));
+          let o_id = new mongo.ObjectId(url.searchParams.get("id"));
           console.log(o_id)
-        
-        await dbFindone(
-          "Gefriergut",
-          "Hinzufügen",
-          { _id: o_id },
+
+          await dbFindone(
+            "Gefriergut",
+            "Hinzufügen",
+            { _id: o_id },
 
 
-          response
-        );
+            response
+          );
 
 
         }
@@ -106,15 +126,15 @@ const server: http.Server = http.createServer(
 
 
 
-     break
-     
-    
-    }
+        break
+
+
+      }
 
       case "/addGefriergut": {
 
         await mongoClient.connect();
-  
+
         if (request.method == "POST") {
 
           let jsonString: string = "";
@@ -131,6 +151,26 @@ const server: http.Server = http.createServer(
               response
             );
           });
+        }
+        break
+      }
+
+      case "/deleteGefriergut": {
+
+        await mongoClient.connect();
+
+        if (request.method == "GET") {
+
+
+          let o_id = new mongo.ObjectId(url.searchParams.get("id"));
+          console.log("Achtung Element wird gelöscht!:", o_id);
+
+          await dbdeleteone(
+            "Gefriergut",
+            "Hinzufügen",
+            { _id: o_id },
+            response
+          );
         }
         break
       }

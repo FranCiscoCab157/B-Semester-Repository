@@ -2,11 +2,11 @@
 var client;
 (function (client) {
     //HTML:
-    var Gefriergut_Feld = null;
-    var Ablaufdatum_Feld = null;
-    var Notiz_Feld = null;
-    var Anlegedatum_Feld = null;
-    var Gefriergut_Element = null;
+    let Gefriergut_Feld = null;
+    let Ablaufdatum_Feld = null;
+    let Notiz_Feld = null;
+    let Anlegedatum_Feld = null;
+    let Gefriergut_Element = null;
     //Server:
     const _url = "http://localhost:3000/";
     const webfunction = "GetGefriergut_Detail";
@@ -18,7 +18,7 @@ var client;
         getGefriergutFromServer();
     });
     async function getGefriergutFromServer() {
-        var parameter = window.location.search;
+        let parameter = window.location.search;
         let response = await fetch(_url + webfunction + parameter);
         let text = await response.text();
         Gefriergut_Element = JSON.parse(text);

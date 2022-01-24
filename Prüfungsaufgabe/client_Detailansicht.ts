@@ -1,10 +1,10 @@
 namespace client {
 
     //HTML:
-    var Gefriergut_Feld: HTMLElement = null
-    var Ablaufdatum_Feld: HTMLElement = null
-    var Notiz_Feld: HTMLElement= null
-    var Anlegedatum_Feld: HTMLElement = null
+    let Gefriergut_Feld: HTMLElement = null
+    let Ablaufdatum_Feld: HTMLElement = null
+    let Notiz_Feld: HTMLElement= null
+    let Anlegedatum_Feld: HTMLElement = null
 
 
     interface Gefriergut {
@@ -16,7 +16,7 @@ namespace client {
 
     }
 
-    var Gefriergut_Element: Gefriergut = null;
+    let Gefriergut_Element: Gefriergut = null;
 
 
 
@@ -41,7 +41,7 @@ namespace client {
 
 
     async function getGefriergutFromServer(): Promise<void> {
-        var parameter = window.location.search;
+        let parameter = window.location.search;
         let response: Response = await fetch(_url + webfunction+ parameter);
         let text: string = await response.text();
         Gefriergut_Element = JSON.parse(text);

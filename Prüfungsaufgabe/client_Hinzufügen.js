@@ -2,10 +2,10 @@
 var client;
 (function (client) {
     //HTML:
-    var GefriergutInput = null;
-    var AblaufdatumInput = null;
-    var NotizenInput = null;
-    var submit = null;
+    let GefriergutInput = null;
+    let AblaufdatumInput = null;
+    let NotizenInput = null;
+    let submit = null;
     //Server:
     const _url = "http://localhost:3000/";
     const webfunction = "addGefriergut";
