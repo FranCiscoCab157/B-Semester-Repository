@@ -10,10 +10,13 @@ namespace client {
         Ablaufdatum: string;
         Notiz: string;
         Anlegedatum: string;
+        Kategorie: number;
 
     }
 
     let GefriergutListe: Gefriergut[] = [];
+
+    const emojidictionary: Record <number, string> = {0: "🥩", 1: "🍆", 2: "🐄"}
 
 
 
@@ -45,7 +48,7 @@ namespace client {
     async function deleteGefriertgutfromServer(clickEvent: PointerEvent): Promise<void> {
 
 
-        let parameter = "?id=" + clickEvent.target.id;
+        let parameter = "?id=" + (clickEvent.target as HTMLButtonElement).id;
 
         console.log(parameter);
         let response: Response = await fetch(_url + webfunction_delete + parameter, {
@@ -72,6 +75,11 @@ namespace client {
 
             let Ablaufdatum: HTMLElement = document.createElement("td");
             Ablaufdatum.textContent = GefriergutTemp.Ablaufdatum;
+            
+            let Kategorie: HTMLElement = document.createElement("td");
+            Kategorie.textContent = emojidictionary [GefriergutTemp.Kategorie]; 
+
+
 
             let trashContainer: HTMLElement = document.createElement("td");
             let trash: HTMLElement = document.createElement("i");
@@ -84,7 +92,8 @@ namespace client {
 
             link.append(Gefriergut)
             trashContainer.appendChild(trash);
-            tableRow.append(link, Ablaufdatum, trashContainer)
+            tableRow.append(link, Ablaufdatum, Kategorie, trashContainer)
+
 
 
 

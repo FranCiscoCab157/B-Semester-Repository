@@ -4,6 +4,8 @@ namespace client {
     let GefriergutInput: HTMLInputElement = null;
     let AblaufdatumInput: HTMLInputElement = null;
     let NotizenInput: HTMLInputElement = null;
+    let KategorieInput: HTMLSelectElement = null;
+
     let submit: HTMLButtonElement = null;
 
 
@@ -13,14 +15,9 @@ namespace client {
         Ablaufdatum: string;
         Notiz: string;
         Anlegedatum: string;
+        Kategorie: number;
 
     }
-
-
-
-
-
-
 
     //Server:
 
@@ -33,6 +30,8 @@ namespace client {
         GefriergutInput = <HTMLInputElement>(document.getElementById("Gefriergut"));
         AblaufdatumInput = <HTMLInputElement>(document.getElementById("Ablaufdatum"));
         NotizenInput = <HTMLInputElement>(document.getElementById("Notizen"));
+        KategorieInput = <HTMLSelectElement>(document.getElementById("Kategorie"));
+
         submit = <HTMLButtonElement>(document.getElementById("submit"));
         submit.addEventListener("click", neuesGefriergut);
     });
@@ -46,11 +45,13 @@ namespace client {
             Gefriergut: "",
             Ablaufdatum: "",
             Notiz: "",
-            Anlegedatum: ""
+            Anlegedatum: "",
+            Kategorie: 1
         };
         GefriergutAdd.Gefriergut = GefriergutInput.value
         GefriergutAdd.Ablaufdatum = AblaufdatumInput.value
         GefriergutAdd.Notiz = NotizenInput.value
+        GefriergutAdd.Kategorie = (KategorieInput.selectedIndex) 
 
         sendJSONStringWithPost(_url + webfunction, JSON.stringify(GefriergutAdd));
 

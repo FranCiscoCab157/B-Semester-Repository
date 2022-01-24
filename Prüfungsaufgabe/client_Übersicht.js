@@ -4,6 +4,7 @@ var client;
     //HTML:
     const table = document.getElementById("GefriergutTabelle");
     let GefriergutListe = [];
+    const emojidictionary = { 0: "🥩", 1: "🍆", 2: "🐄" };
     //Server:
     const _url = "http://localhost:3000/";
     const webfunction = "GetGefriergut";
@@ -36,6 +37,8 @@ var client;
             Gefriergut.textContent = GefriergutTemp.Gefriergut;
             let Ablaufdatum = document.createElement("td");
             Ablaufdatum.textContent = GefriergutTemp.Ablaufdatum;
+            let Kategorie = document.createElement("td");
+            Kategorie.textContent = emojidictionary[GefriergutTemp.Kategorie];
             let trashContainer = document.createElement("td");
             let trash = document.createElement("i");
             trash.className = "trash";
@@ -45,7 +48,7 @@ var client;
             deleteButton.addEventListener("click", deleteGefriertgutfromServer);
             link.append(Gefriergut);
             trashContainer.appendChild(trash);
-            tableRow.append(link, Ablaufdatum, trashContainer);
+            tableRow.append(link, Ablaufdatum, Kategorie, trashContainer);
             table.append(tableRow);
         }
         /* table.appendChild(tableRow);

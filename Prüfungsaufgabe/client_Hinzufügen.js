@@ -5,6 +5,7 @@ var client;
     let GefriergutInput = null;
     let AblaufdatumInput = null;
     let NotizenInput = null;
+    let KategorieInput = null;
     let submit = null;
     //Server:
     const _url = "http://localhost:3000/";
@@ -13,6 +14,7 @@ var client;
         GefriergutInput = (document.getElementById("Gefriergut"));
         AblaufdatumInput = (document.getElementById("Ablaufdatum"));
         NotizenInput = (document.getElementById("Notizen"));
+        KategorieInput = (document.getElementById("Kategorie"));
         submit = (document.getElementById("submit"));
         submit.addEventListener("click", neuesGefriergut);
     });
@@ -23,11 +25,13 @@ var client;
             Gefriergut: "",
             Ablaufdatum: "",
             Notiz: "",
-            Anlegedatum: ""
+            Anlegedatum: "",
+            Kategorie: 1
         };
         GefriergutAdd.Gefriergut = GefriergutInput.value;
         GefriergutAdd.Ablaufdatum = AblaufdatumInput.value;
         GefriergutAdd.Notiz = NotizenInput.value;
+        GefriergutAdd.Kategorie = (KategorieInput.selectedIndex);
         sendJSONStringWithPost(_url + webfunction, JSON.stringify(GefriergutAdd));
     }
     async function sendJSONStringWithPost(url, jsonString) {

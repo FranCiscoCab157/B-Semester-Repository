@@ -13,8 +13,12 @@ namespace client {
         Ablaufdatum: string;
         Notiz: string;
         Anlegedatum: string;
+        Kategorie: number;
 
     }
+
+
+
 
     let Gefriergut_Element: Gefriergut = null;
 
