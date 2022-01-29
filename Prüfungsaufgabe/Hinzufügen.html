@@ -1,100 +1,78 @@
 <!DOCTYPE html>
-<html lang="de"> 
+<html lang="de">
+
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Gefriergut">
-    <title>Hinzufügen</title>
-    <link rel="stylesheet" href="Stylesheet.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="client_Hinzufügen.js" defer></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    </head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Gefriergut">
+  <title>Hinzufügen</title>
+  <link rel="stylesheet" href="Style/Stylesheet.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="Client/client_Hinzufügen.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
 
 <body>
 
-        <!--Sidebar-->
-        <div class="sidebar">
-            <h2>Menü</h2>
-            <ul class="nav">
-              <li>
-                <a href="Übersicht.html">
-                <i class="fas fa-calendar-check"></i>
-                  <span>Übersicht</span>
-                </a>
-              </li>
-              <li>
-                <a href="Hinzufügen.html">
-                    <i class="fas fa-plus-square"></i>
-                 <span>Hinzufügen</span>
-                </a>
-              </li>
-            
-               </div>
-    
-     <!--Content-->
-<div class="content">
-<main>
-    <h1><u>Gefriergut hinzufügen</u></h1> 
-    <div id="Hinzufügen">
+  <!--Sidebar-->
+  <div class="sidebar">
+    <h2>Menü</h2>
+    <ul class="nav">
+      <li>
+        <a href="Übersicht.html">
+          <i class="fas fa-calendar-check"></i>
+          <span>Übersicht</span>
+        </a>
+      </li>
+      <li>
+        <a href="Hinzufügen.html">
+          <i class="fas fa-plus-square"></i>
+          <span>Hinzufügen</span>
+        </a>
+      </li>
+
+  </div>
+
+  <!--Content-->
+  <div class="content">
+    <main>
+      <h1><u>Gefriergut hinzufügen</u></h1>
+      <div id="Hinzufügen">
         <form>
-            <div> 
-                <label for="name">Gefriergut:</label><br>
-                <input id="Gefriergut" type="text" name="Gefriergut" placeholder="Gefriergut" required><br>
+          <div>
+            <label for="name">Gefriergut:</label><br>
+            <input id="Gefriergut" type="text" name="Gefriergut" placeholder="Gefriergut" required><br>
 
-                <label for="name">Ablaufdatum</label><br>
-                <input id="Ablaufdatum" type="Date" name="Ablaufdatum" placeholder="MM.JJ" required><br>
+            <label for="name">Ablaufdatum</label><br>
+            <input id="Ablaufdatum" type="Date" name="Ablaufdatum" placeholder="MM.JJ" required><br>
 
-                <label for="name">Notizen</label><br>
-                <input id="Notizen" type="text" name="Notizen" required>
-               
-                <label for="Kategorie">Kategorie</label><br>
-                <select id="Kategorie" name="Kategorie" size="3">
-                  <option>🥩</option>
-                  <option>🍆</option>
-                  <option>🐄</option>
+            <label for="name">Notizen</label><br>
+            <input id="Notizen" type="text" name="Notizen" placeholder="..." required>
 
-                </select>
-          
-            
+            <label for="Kategorie">Kategorie</label><br>
+            <select id="Kategorie" name="Kategorie" size="3">
+              <option>🥩</option>
+              <option>🍆</option>
+              <option>🐄</option>
 
-                <button id="submit" type="submit">+</button> 
+            </select>
 
 
 
-
-                <table id="Tabelle">
-                  <tr>
-                    <th><u>Gefriergut</u></th>
-                    <th><u>Ablaufdatum</u></th>
-                
-                    </tr>
-                </table>   
-
-            </div>
+            <button id="submit" type="submit">+</button>
 
 
+          </div>
+            </form>
 
-
-
-
-
-
-
-
-        </form>
- 
-    </ul>
-</div>
-</main>
+        </ul>
+      </div>
+    </main>
 </body>
-</html> 
 
-
-
-
+</html>

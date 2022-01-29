@@ -56,6 +56,7 @@ namespace client {
 
 
 
+    // Gefriergut Felder füllen
 
     function FülleGefriergutFelder(): void {
         

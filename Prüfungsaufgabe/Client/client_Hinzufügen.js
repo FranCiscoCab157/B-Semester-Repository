@@ -7,8 +7,6 @@ var client;
     let NotizenInput = null;
     let KategorieInput = null;
     let submit = null;
-    const emojidictionary = { "1": "🥩", "2": "🍆", "3": "🐄" };
-
     //Server:
     const _url = "http://localhost:3000/";
     const webfunction = "addGefriergut";
@@ -17,7 +15,6 @@ var client;
         AblaufdatumInput = (document.getElementById("Ablaufdatum"));
         NotizenInput = (document.getElementById("Notizen"));
         KategorieInput = (document.getElementById("Kategorie"));
-
         submit = (document.getElementById("submit"));
         submit.addEventListener("click", neuesGefriergut);
     });
@@ -34,7 +31,7 @@ var client;
         GefriergutAdd.Gefriergut = GefriergutInput.value;
         GefriergutAdd.Ablaufdatum = AblaufdatumInput.value;
         GefriergutAdd.Notiz = NotizenInput.value;
-        GefriergutAdd.Kategorie = Number(KategorieInput.value);
+        GefriergutAdd.Kategorie = (KategorieInput.selectedIndex);
         sendJSONStringWithPost(_url + webfunction, JSON.stringify(GefriergutAdd));
     }
     async function sendJSONStringWithPost(url, jsonString) {
